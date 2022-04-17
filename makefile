@@ -25,7 +25,7 @@ STUTIL_PORT = 4242
 # Directories to be searched for header files
 INCLUDE = $(addprefix -I,$(INC_DIR))
 
-DEFS    = -D$(MCU) -DUSE_HAL_DRIVER
+DEFS    = -D$(MCU)
 
 # Assembly flags
 AFLAGS  = -mcpu=cortex-m4
@@ -55,14 +55,14 @@ STM_ROOT     = $$HOME/STM32Cube/Repository/STM32Cube_FW_F4_V1.27.0
 # which are not in the current directory
 # (the sources of the standard peripheral library, which we use)
 # see also "info:/make/Selective Search" in Konqueror
-DRV_SRC_DIR  = ./driver_LIS2DW12/src
+
 STM_SRC_DIR  = $(STM_ROOT)/Drivers/STM32F4xx_HAL_Driver/Src
 STM_SRC_DIR += $(STM_ROOT)/Drivers/BSP/STM32F4xx_Nucleo_144
 STM_SRC_DIR += $(STM_ROOT)/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates
 
 # Tell make to look in that folder if it cannot find a source
 # in the current directory
-vpath %.c $(DRV_SRC_DIR)
+
 vpath %.c $(STM_SRC_DIR)
 
 ################################################################################
@@ -82,6 +82,7 @@ INC_DIR += ./inc
 ################################################################################
 
 SRCS_DIR = ./src
+DSRCS_DIR  = ./driver_LIS2DW12/src
 ASRCS_DIR = ./startup
 
 # My source files
@@ -96,20 +97,23 @@ SRCS += system_stm32f4xx.c
 SRCS += syscalls.c
 SRCS += sysmem.c
 
+DSRCS = lis2dw12.c
+DSRCS += lis2dw12_stm32f429xx_port.c
+
 # Startup file written by ST
 # The assembly code in this file is the first one to be
 # executed. Normally you do not change this file.
 ASRCS = startup_stm32f429zitx.s
 
-SOURCE = $(addprefix $(SRCS_DIR)/,$(SRCS))
-ASOURCE = $(addprefix $(ASRCS_DIR)/,$(ASRCS))
-
 OUT_DIR = ./build
+
 # in case we have to many sources and don't want
 # to compile all sources every time
 COBJS = $(SRCS:.c=.o)
+DOBJS = $(DSRCS:.c=.o)
 AOBJS = $(ASRCS:.s=.o)
 COBJS := $(addprefix $(OUT_DIR)/,$(COBJS))
+DOBJS := $(addprefix $(OUT_DIR)/,$(DOBJS))
 AOBJS := $(addprefix $(OUT_DIR)/,$(AOBJS))
 
 ######################################################################
@@ -122,6 +126,11 @@ BIN_DIR = ./bin
 
 all: $(BIN_DIR)/$(PROJ_NAME).elf
 
+$(OUT_DIR)/%.o: $(DSRCS_DIR)/%.c
+	@echo "[Compiling...  ]  $^"
+	@mkdir -p $(dir $@)
+	@$(CC) -c $(CFLAGS) $(INCLUDE) $(DEFS) -o $@ $^
+
 $(OUT_DIR)/%.o: $(SRCS_DIR)/%.c
 	@echo "[Compiling...  ]  $^"
 	@mkdir -p $(dir $@)
@@ -131,10 +140,10 @@ $(OUT_DIR)/%.o: $(ASRCS_DIR)/%.s
 	@echo "[Assembling... ]  $^"
 	@$(AS) $(AFLAGS) $< -o $@
 
-$(BIN_DIR)/$(PROJ_NAME).elf: $(COBJS) $(AOBJS)
+$(BIN_DIR)/$(PROJ_NAME).elf: $(COBJS) $(DOBJS) $(AOBJS)
 	@echo "[Linking...    ]  $@"
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(LFLAGS) $(foreach file, $^, $(file)) -o $@
+	@$(CC) $(CFLAGS) $(LFLAGS) $(foreach file, $^, $(file)) -o $@ @"objects.list"
 	@$(OBJCOPY) -O ihex $@ $(dir $@)/$(PROJ_NAME).hex
 	@$(OBJCOPY) -O binary $@ $(dir $@)/$(PROJ_NAME).bin
 	@echo "Done!"
