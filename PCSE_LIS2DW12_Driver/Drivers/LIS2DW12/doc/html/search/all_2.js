@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['delay1ms_5ft_8',['delay1ms_t',['../max6675_8h.html#a3184e56120d5f2f997c4ed1e9c3c7af0',1,'max6675.h']]],
-  ['delay_5f1ms_5ffunc_9',['delay_1ms_func',['../struct__max6675.html#a80ebffd95ff9a76a3a590ef290f0ee9e',1,'_max6675']]],
-  ['delay_5fciaa_5fport_10',['delay_CIAA_port',['../max6675__CIAA__port_8h.html#a9706d7d3f313a1225bda1805c9c004e7',1,'max6675_CIAA_port.h']]]
+  ['fds_2',['fds',['../struct__lis2dw12__config.html#a346e9b5e365a29f85d8271ad66c19f11',1,'_lis2dw12_config']]],
+  ['fs_3',['fs',['../struct__lis2dw12__config.html#aee59836698a78eb95374a1520814a6ef',1,'_lis2dw12_config']]]
 ];

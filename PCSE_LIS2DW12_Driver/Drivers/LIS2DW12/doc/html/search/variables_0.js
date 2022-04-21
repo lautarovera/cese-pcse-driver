@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['chip_5fselect_5fctrl_33',['chip_select_ctrl',['../struct__max6675.html#a777f3082d683a240376e093c06b4a583',1,'_max6675']]]
+  ['bw_5ffilt_103',['bw_filt',['../struct__lis2dw12__config.html#a35c56e99056b2c2b722e7da8dfc344f3',1,'_lis2dw12_config']]]
 ];

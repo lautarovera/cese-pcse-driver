@@ -5,13 +5,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LIS2DW12_DRIVER: Miembros de los ficheros</title>
+<title>LIS2DW12_DRIVER: Globales</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -25,6 +34,21 @@
    &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -36,17 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Buscar');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('globals_enum.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -63,16 +93,43 @@ $(function() {
 
 <div class="contents">
 &#160;<ul>
-<li>_csState
-: <a class="el" href="max6675_8h.html#acb82f2e15f0eb37647fae830cf6fd229">max6675.h</a>
+<li>lis2dw12_bwfilt_t
+: <a class="el" href="lis2dw12_8h.html#a3b1d641b444f75a3a94e1ef03a00153d">lis2dw12.h</a>
+</li>
+<li>lis2dw12_fds_t
+: <a class="el" href="lis2dw12_8h.html#a104a4ce1b3d870bbf283483538625e7e">lis2dw12.h</a>
+</li>
+<li>lis2dw12_fifomode_t
+: <a class="el" href="lis2dw12_8h.html#ab2c2c2d78b5545f51b36ba57778975c7">lis2dw12.h</a>
+</li>
+<li>lis2dw12_fs_t
+: <a class="el" href="lis2dw12_8h.html#abc9e3d093cb1a24a601491f8c5fc465b">lis2dw12.h</a>
+</li>
+<li>lis2dw12_lownoise_t
+: <a class="el" href="lis2dw12_8h.html#a2fb201db1620d4193635ab34d9082bc1">lis2dw12.h</a>
+</li>
+<li>lis2dw12_lpmode_t
+: <a class="el" href="lis2dw12_8h.html#aeca8d00504c91c6bc7417de159e6ef66">lis2dw12.h</a>
+</li>
+<li>lis2dw12_mode_t
+: <a class="el" href="lis2dw12_8h.html#af7b97b4d429134db863787aa2a0d58d3">lis2dw12.h</a>
+</li>
+<li>lis2dw12_odr_t
+: <a class="el" href="lis2dw12_8h.html#a9b11ba2b6a98c456defd3297c66f226b">lis2dw12.h</a>
+</li>
+<li>lis2dw12_status_t
+: <a class="el" href="lis2dw12_8h.html#aecdfcffe494a561eba0661c49f299fe9">lis2dw12.h</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generado por &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

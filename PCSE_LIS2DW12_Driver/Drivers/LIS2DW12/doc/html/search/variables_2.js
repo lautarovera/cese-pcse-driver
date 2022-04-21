@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['spi_5fread_5ffnc_35',['spi_read_fnc',['../struct__max6675.html#a5ced3bd334771bd13faaf5f39686f6a0',1,'_max6675']]]
+  ['low_5fnoise_106',['low_noise',['../struct__lis2dw12__config.html#ae2b6818a04ef7d6cf993d09c02afa927',1,'_lis2dw12_config']]],
+  ['lp_5fmode_107',['lp_mode',['../struct__lis2dw12__config.html#a860edbdb761ea2d93776d93cfef5690e',1,'_lis2dw12_config']]]
 ];

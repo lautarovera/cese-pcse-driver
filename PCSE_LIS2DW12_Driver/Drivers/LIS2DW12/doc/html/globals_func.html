@@ -5,13 +5,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>LIS2DW12_DRIVER: Miembros de los ficheros</title>
+<title>LIS2DW12_DRIVER: Globales</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -25,6 +34,21 @@
    &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -36,17 +60,23 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(function() {
-  initMenu('',true,false,'search.php','Buscar');
-  $(document).ready(function() { init_search(); });
-});
-/* @license-end */</script>
-<div id="main-nav"></div>
-</div><!-- top -->
+$(document).ready(function(){initNavTree('globals_func.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,32 +92,87 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;<ul>
-<li>chipSelect_CIAA_port()
-: <a class="el" href="max6675__CIAA__port_8h.html#a1a36e1c51e765a06fb3de7a161c8a064">max6675_CIAA_port.h</a>
+&#160;
+
+<h3><a id="index_l"></a>- l -</h3><ul>
+<li>lis2dw12_get_config()
+: <a class="el" href="lis2dw12_8c.html#a8628283bbf0528c2201e39c80a5edafb">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#a8628283bbf0528c2201e39c80a5edafb">lis2dw12.h</a>
 </li>
-<li>delay_CIAA_port()
-: <a class="el" href="max6675__CIAA__port_8h.html#a9706d7d3f313a1225bda1805c9c004e7">max6675_CIAA_port.h</a>
+<li>lis2dw12_get_fifo_mg()
+: <a class="el" href="lis2dw12_8c.html#ac3655fce1ad843171f2aa990babcd4b5">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#ac3655fce1ad843171f2aa990babcd4b5">lis2dw12.h</a>
 </li>
-<li>max6675_GetTemp()
-: <a class="el" href="max6675_8h.html#adfb10e10d0e0484c0d185ce145b3a8b2">max6675.h</a>
+<li>lis2dw12_get_id()
+: <a class="el" href="lis2dw12_8c.html#ad63a65ccdb4331fe826b39c3045cdb2f">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#ad63a65ccdb4331fe826b39c3045cdb2f">lis2dw12.h</a>
 </li>
-<li>max6675_InitDriver()
-: <a class="el" href="max6675_8h.html#a5130b2e4f6d781d278fca55d11889cb2">max6675.h</a>
+<li>lis2dw12_get_mg_x()
+: <a class="el" href="lis2dw12_8c.html#a6663e8966813e395ab5826fe170dae85">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#a6663e8966813e395ab5826fe170dae85">lis2dw12.h</a>
 </li>
-<li>max6675_isProbeOpen()
-: <a class="el" href="max6675_8h.html#a43315383caeb27ae0144f213101212ba">max6675.h</a>
+<li>lis2dw12_get_mg_y()
+: <a class="el" href="lis2dw12_8c.html#aab702549302f743135fdfa053cc2907d">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#aab702549302f743135fdfa053cc2907d">lis2dw12.h</a>
 </li>
-<li>spiRead_CIAA_port()
-: <a class="el" href="max6675__CIAA__port_8h.html#a630524cb3d5df35ab5cc9300a1b05557">max6675_CIAA_port.h</a>
+<li>lis2dw12_get_mg_z()
+: <a class="el" href="lis2dw12_8c.html#af4cc49b676523063d84aedb83c27933f">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#af4cc49b676523063d84aedb83c27933f">lis2dw12.h</a>
+</li>
+<li>lis2dw12_init()
+: <a class="el" href="lis2dw12_8c.html#ab0180bf526430a1efe0449b2901149f1">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#ab0180bf526430a1efe0449b2901149f1">lis2dw12.h</a>
+</li>
+<li>lis2dw12_is_data_ready()
+: <a class="el" href="lis2dw12_8c.html#af191d5c325ddc9cc21625b428b4df814">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#af191d5c325ddc9cc21625b428b4df814">lis2dw12.h</a>
+</li>
+<li>lis2dw12_is_fifo_full()
+: <a class="el" href="lis2dw12_8c.html#a2dec9ea4850de8e604f20d29c70437c4">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#a2dec9ea4850de8e604f20d29c70437c4">lis2dw12.h</a>
+</li>
+<li>lis2dw12_is_fifo_ready()
+: <a class="el" href="lis2dw12_8c.html#a0802b53080e58db9c9f03b9f8f220953">lis2dw12.c</a>
+, <a class="el" href="lis2dw12_8h.html#a0802b53080e58db9c9f03b9f8f220953">lis2dw12.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_s"></a>- s -</h3><ul>
+<li>stm32f429xx_i2c_init()
+: <a class="el" href="lis2dw12__stm32f429xx__port_8c.html#a743e0b92d179d01af460495c6acfde08">lis2dw12_stm32f429xx_port.c</a>
+, <a class="el" href="lis2dw12__stm32f429xx__port_8h.html#a743e0b92d179d01af460495c6acfde08">lis2dw12_stm32f429xx_port.h</a>
+</li>
+<li>stm32f429xx_i2c_is_dev_ready()
+: <a class="el" href="lis2dw12__stm32f429xx__port_8c.html#a51f54824e434bc0d2d8e9a8ee8cb5d89">lis2dw12_stm32f429xx_port.c</a>
+, <a class="el" href="lis2dw12__stm32f429xx__port_8h.html#a51f54824e434bc0d2d8e9a8ee8cb5d89">lis2dw12_stm32f429xx_port.h</a>
+</li>
+<li>stm32f429xx_i2c_master_rx()
+: <a class="el" href="lis2dw12__stm32f429xx__port_8c.html#a461b67344ca64a3e0f313f66f217db12">lis2dw12_stm32f429xx_port.c</a>
+, <a class="el" href="lis2dw12__stm32f429xx__port_8h.html#a461b67344ca64a3e0f313f66f217db12">lis2dw12_stm32f429xx_port.h</a>
+</li>
+<li>stm32f429xx_i2c_master_tx()
+: <a class="el" href="lis2dw12__stm32f429xx__port_8c.html#ac48ff5c21922d3868c1d43ff50f90704">lis2dw12_stm32f429xx_port.c</a>
+, <a class="el" href="lis2dw12__stm32f429xx__port_8h.html#ac48ff5c21922d3868c1d43ff50f90704">lis2dw12_stm32f429xx_port.h</a>
+</li>
+<li>stm32f429xx_i2c_mem_read()
+: <a class="el" href="lis2dw12__stm32f429xx__port_8c.html#a9adecb42fc12bcc82ddbe64f46a86d8b">lis2dw12_stm32f429xx_port.c</a>
+, <a class="el" href="lis2dw12__stm32f429xx__port_8h.html#a9adecb42fc12bcc82ddbe64f46a86d8b">lis2dw12_stm32f429xx_port.h</a>
+</li>
+<li>stm32f429xx_i2c_mem_write()
+: <a class="el" href="lis2dw12__stm32f429xx__port_8c.html#a766a5dca9964ab3deca68bd1a2eee519">lis2dw12_stm32f429xx_port.c</a>
+, <a class="el" href="lis2dw12__stm32f429xx__port_8h.html#a766a5dca9964ab3deca68bd1a2eee519">lis2dw12_stm32f429xx_port.h</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generado por &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

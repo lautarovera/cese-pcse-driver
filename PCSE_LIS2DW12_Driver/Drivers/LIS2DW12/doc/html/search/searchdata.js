@@ -1,14 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "_cdmps",
-  1: "_",
-  2: "m",
-  3: "cdms",
-  4: "cds",
-  5: "cdms",
-  6: "_",
-  7: "c",
-  8: "mp"
+  0: "_bflmos",
+  1: "_l",
+  2: "l",
+  3: "ls",
+  4: "bflmo",
+  5: "l",
+  6: "l"
 };
 
 var indexSectionNames =
@@ -18,22 +16,18 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "typedefs",
-  6: "enums",
-  7: "enumvalues",
-  8: "defines"
+  5: "enums",
+  6: "enumvalues"
 };
 
 var indexSectionLabels =
 {
   0: "Todo",
-  1: "Clases",
+  1: "Estructuras de Datos",
   2: "Archivos",
   3: "Funciones",
   4: "Variables",
-  5: "typedefs",
-  6: "Enumeraciones",
-  7: "Valores de enumeraciones",
-  8: "defines"
+  5: "Enumeraciones",
+  6: "Valores de enumeraciones"
 };
 

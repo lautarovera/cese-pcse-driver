@@ -119,7 +119,7 @@ int main(void)
 	MX_ETH_Init();
 	MX_USART3_UART_Init();
 	MX_USB_OTG_FS_PCD_Init();
-	// MX_I2C1_Init();
+
 	/* USER CODE BEGIN 2 */
 	lis2dw12_usr_cfg.odr = LIS2DW12_ODR_200_HZ;
 	lis2dw12_usr_cfg.mode = LIS2DW12_MODE_HI_PF;

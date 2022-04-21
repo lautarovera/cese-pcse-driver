@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5fmax6675_24',['_max6675',['../struct__max6675.html',1,'']]]
+  ['_5flis2dw12_5fconfig_80',['_lis2dw12_config',['../struct__lis2dw12__config.html',1,'']]]
 ];

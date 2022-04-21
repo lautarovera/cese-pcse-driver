@@ -458,7 +458,7 @@ int main(void)
  80005ba:	f000 f9c3 	bl	8000944 <MX_USART3_UART_Init>
 	MX_USB_OTG_FS_PCD_Init();
  80005be:	f000 f9eb 	bl	8000998 <MX_USB_OTG_FS_PCD_Init>
-	// MX_I2C1_Init();
+
 	/* USER CODE BEGIN 2 */
 	lis2dw12_usr_cfg.odr = LIS2DW12_ODR_200_HZ;
  80005c2:	4b75      	ldr	r3, [pc, #468]	; (8000798 <main+0x1f4>)

@@ -31,9 +31,23 @@ var menudata={children:[
 {text:"Archivos",url:"files.html",children:[
 {text:"Lista de archivos",url:"files.html"},
 {text:"Miembros de los ficheros",url:"globals.html",children:[
-{text:"Todo",url:"globals.html"},
-{text:"Funciones",url:"globals_func.html"},
+{text:"Todo",url:"globals.html",children:[
+{text:"f",url:"globals.html#index_f"},
+{text:"h",url:"globals.html#index_h"},
+{text:"i",url:"globals.html#index_i"},
+{text:"l",url:"globals.html#index_l"},
+{text:"s",url:"globals.html#index_s"}]},
+{text:"Funciones",url:"globals_func.html",children:[
+{text:"l",url:"globals_func.html#index_l"},
+{text:"s",url:"globals_func.html#index_s"}]},
+{text:"Variables",url:"globals_vars.html"},
 {text:"typedefs",url:"globals_type.html"},
 {text:"Enumeraciones",url:"globals_enum.html"},
-{text:"Valores de enumeraciones",url:"globals_eval.html"},
-{text:"defines",url:"globals_defs.html"}]}]}]}
+{text:"Valores de enumeraciones",url:"globals_eval.html",children:[
+{text:"i",url:"globals_eval.html#index_i"},
+{text:"l",url:"globals_eval.html#index_l"}]},
+{text:"defines",url:"globals_defs.html",children:[
+{text:"f",url:"globals_defs.html#index_f"},
+{text:"i",url:"globals_defs.html#index_i"},
+{text:"l",url:"globals_defs.html#index_l"},
+{text:"s",url:"globals_defs.html#index_s"}]}]}]}]}
