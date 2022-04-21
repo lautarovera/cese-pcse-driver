@@ -76,14 +76,22 @@ typedef enum {
   LIS2DW12_LOW_NOISE_DEFAULT = 0x0u
 } lis2dw12_lownoise_t;
 
+typedef enum {
+  LIS2DW12_FIFO_MODE_OFF     = 0x0u,
+  LIS2DW12_FIFO_MODE_ON      = 0x1u,
+  LIS2DW12_FIFO_MODE_DEFAULT = 0x0u
+} lis2dw12_fifomode_t;
+
 struct _lis2dw12_config  {
   lis2dw12_odr_t odr;
   lis2dw12_mode_t mode;
-  lis2dw12_lpmode_t lpmode;
-  lis2dw12_bwfilt_t bwfilt;
+  lis2dw12_lpmode_t lp_mode;
+  lis2dw12_bwfilt_t bw_filt;
   lis2dw12_fs_t fs;
   lis2dw12_fds_t fds;
-  lis2dw12_lownoise_t lownoise;
+  lis2dw12_lownoise_t low_noise;
+  lis2dw12_fifomode_t fifo_mode;
+  uint8_t fifo_ths;
 };
 
 typedef struct _lis2dw12_config lis2dw12_config_t;
@@ -105,15 +113,17 @@ typedef struct _lis2dw12_config lis2dw12_config_t;
  *  @param      estado  Determina la accion a ser tomada con el pin CS.
  *  @return     None.
  **************************************************************************************************/
-void lis2dw12_init(lis2dw12_config_t usr_config);
+lis2dw12_status_t lis2dw12_init(lis2dw12_config_t usr_config);
 
-uint8_t lis2dw12_get_id(void);
+lis2dw12_status_t lis2dw12_get_config(lis2dw12_config_t *current_config);
+
+lis2dw12_status_t lis2dw12_get_id(uint8_t *id);
 
 lis2dw12_status_t lis2dw12_is_data_ready(void);
 
-int8_t lis2dw12_get_raw_temp_8bit(void);
+lis2dw12_status_t lis2dw12_is_fifo_ready(void);
 
-int16_t lis2dw12_get_raw_temp_12bit(void);
+lis2dw12_status_t lis2dw12_is_fifo_full(void);
 
 int16_t lis2dw12_get_mg_x(void);
 
@@ -121,13 +131,7 @@ int16_t lis2dw12_get_mg_y(void);
 
 int16_t lis2dw12_get_mg_z(void);
 
-lis2dw12_odr_t lis2dw12_get_odr(void);
-
-lis2dw12_mode_t lis2dw12_get_mode(void);
-
-lis2dw12_lpmode_t lis2dw12_get_lpmode(void);
-
-lis2dw12_fs_t lis2dw12_get_fs(void);
+lis2dw12_status_t lis2dw12_get_fifo_mg(int16_t *buffer_x, int16_t *buffer_y, int16_t *buffer_z, uint8_t buffer_len);
 
 
 #endif /* LIS2DW12_H_ */

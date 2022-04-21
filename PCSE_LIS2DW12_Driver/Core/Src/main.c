@@ -34,6 +34,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define LIS2DW12_FIFO_SAMPLES	32u
 
 /* USER CODE END PD */
 
@@ -58,8 +59,12 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 uint8_t buffer_uart[50u];
+int16_t buffer_fifo_x[LIS2DW12_FIFO_SAMPLES];
+int16_t buffer_fifo_y[LIS2DW12_FIFO_SAMPLES];
+int16_t buffer_fifo_z[LIS2DW12_FIFO_SAMPLES];
 
 lis2dw12_config_t lis2dw12_usr_cfg;
+lis2dw12_config_t lis2dw12_read_cfg;
 
 /* USER CODE END PV */
 
@@ -69,7 +74,7 @@ static void MX_GPIO_Init(void);
 static void MX_ETH_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
-static void MX_I2C1_Init(void);
+//static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -84,72 +89,106 @@ static void MX_I2C1_Init(void);
   */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
-  int16_t x_mg;
-  int16_t y_mg;
-  int16_t z_mg;
-  /* USER CODE END 1 */
+	/* USER CODE BEGIN 1 */
+	int16_t x_mg;
+	int16_t y_mg;
+	int16_t z_mg;
+	uint8_t id;
+	lis2dw12_status_t ret_val;
 
-  /* MCU Configuration--------------------------------------------------------*/
+	/* USER CODE END 1 */
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	/* MCU Configuration--------------------------------------------------------*/
 
-  /* USER CODE BEGIN Init */
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
 
-  /* USER CODE END Init */
+	/* USER CODE BEGIN Init */
 
-  /* Configure the system clock */
-  SystemClock_Config();
+	/* USER CODE END Init */
 
-  /* USER CODE BEGIN SysInit */
+	/* Configure the system clock */
+	SystemClock_Config();
 
-  /* USER CODE END SysInit */
+	/* USER CODE BEGIN SysInit */
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_ETH_Init();
-  MX_USART3_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
-  // MX_I2C1_Init();
-  /* USER CODE BEGIN 2 */
-  lis2dw12_usr_cfg.odr = LIS2DW12_ODR_200_HZ;
-  lis2dw12_usr_cfg.mode = LIS2DW12_MODE_HI_PF;
-  lis2dw12_usr_cfg.lpmode = LIS2DW12_LP_MODE_DEFAULT;
-  lis2dw12_usr_cfg.bwfilt = LIS2DW12_BW_FILT_1;
-  lis2dw12_usr_cfg.fs = LIS2DW12_FS_2_G;
-  lis2dw12_usr_cfg.fds = LIS2DW12_FDS_LP_FILT;
-  lis2dw12_usr_cfg.lownoise = LIS2DW12_LOW_NOISE_OFF;
+	/* USER CODE END SysInit */
 
-  lis2dw12_init(lis2dw12_usr_cfg);
-  /* USER CODE END 2 */
+	/* Initialize all configured peripherals */
+	MX_GPIO_Init();
+	MX_ETH_Init();
+	MX_USART3_UART_Init();
+	MX_USB_OTG_FS_PCD_Init();
+	// MX_I2C1_Init();
+	/* USER CODE BEGIN 2 */
+	lis2dw12_usr_cfg.odr = LIS2DW12_ODR_200_HZ;
+	lis2dw12_usr_cfg.mode = LIS2DW12_MODE_HI_PF;
+	lis2dw12_usr_cfg.lp_mode = LIS2DW12_LP_MODE_DEFAULT;
+	lis2dw12_usr_cfg.bw_filt = LIS2DW12_BW_FILT_1;
+	lis2dw12_usr_cfg.fs = LIS2DW12_FS_2_G;
+	lis2dw12_usr_cfg.fds = LIS2DW12_FDS_LP_FILT;
+	lis2dw12_usr_cfg.low_noise = LIS2DW12_LOW_NOISE_OFF;
+	lis2dw12_usr_cfg.fifo_mode = LIS2DW12_FIFO_MODE_ON;
+	lis2dw12_usr_cfg.fifo_ths = LIS2DW12_FIFO_SAMPLES;
 
-  sprintf((char *)buffer_uart, "LIS2DW12 ID = 0x%x\r\n\n", lis2dw12_get_id());
-  HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+	ret_val = lis2dw12_init(lis2dw12_usr_cfg);
 
-  while (1)
-  {
-    /* USER CODE END WHILE */
-    if (lis2dw12_is_data_ready()) {
-      x_mg = lis2dw12_get_mg_x();
-      y_mg = lis2dw12_get_mg_y();
-      z_mg = lis2dw12_get_mg_z();
+	/* USER CODE END 2 */
 
-      sprintf((char *)buffer_uart, "X = %d\tY = %d\tZ = %d\r\n\n", x_mg, y_mg, z_mg);
-    }
-    else {
-      sprintf((char *)buffer_uart, "Data is not ready\r\n\n");
-    }
+	/* USER CODE BEGIN 3 */
+	if (LIS2DW12_OK == ret_val) {
+		sprintf((char *)buffer_uart, "LIS2DW12 initialization success\r\n\n");
+		HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
 
-    HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
-    /* USER CODE END WHILE */
+		lis2dw12_get_id(&id);
+		sprintf((char *)buffer_uart, "LIS2DW12 ID = 0x%x\r\n\n", id);
+		HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
 
-    /* USER CODE BEGIN 3 */
-    HAL_Delay(500u);
-    /* USER CODE BEGIN 3 */
-  }
+		/* Infinite loop */
+		while (1)
+		{
+			if (LIS2DW12_FIFO_MODE_ON == lis2dw12_usr_cfg.fifo_mode) {
+				if (lis2dw12_is_fifo_ready() || lis2dw12_is_fifo_full()) {
+					lis2dw12_get_fifo_mg(buffer_fifo_x, buffer_fifo_y, buffer_fifo_z, LIS2DW12_FIFO_SAMPLES);
+
+					sprintf((char *)buffer_uart, "\r\n\nFIFO data begin\r\n\n");
+					HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
+
+					for(uint8_t i = 0u; i < LIS2DW12_FIFO_SAMPLES; i++) {
+						sprintf((char *)buffer_uart, "X = %5d\tY = %5d\tZ = %5d\r\n", buffer_fifo_x[i], buffer_fifo_y[i], buffer_fifo_z[i]);
+						HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
+					}
+
+					sprintf((char *)buffer_uart, "\r\n\nFIFO data end\r\n\n");
+				}
+				else {
+					sprintf((char *)buffer_uart, "FIFO is not ready\r\n\n");
+				}
+			}
+			else {
+				if (lis2dw12_is_data_ready()) {
+					x_mg = lis2dw12_get_mg_x();
+					y_mg = lis2dw12_get_mg_y();
+					z_mg = lis2dw12_get_mg_z();
+
+					sprintf((char *)buffer_uart, "X = %5d\tY = %5d\tZ = %5d\r\n\n", x_mg, y_mg, z_mg);
+				}
+				else {
+					sprintf((char *)buffer_uart, "Data is not ready\r\n\n");
+				}
+			}
+
+			HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
+
+			HAL_Delay(500u);
+		}
+	}
+	else {
+		sprintf((char *)buffer_uart, "LIS2DW12 initialization failed\r\n\n", id);
+		HAL_UART_Transmit(&huart3, buffer_uart, strlen((char *)buffer_uart), 0xFFFF);
+
+		Error_Handler();
+	}
 
   /* USER CODE END 3 */
 }
