@@ -1,7 +1,0 @@
-../Drivers/LIS2DW12/src/lis2dw12_stm32f429xx_port.c:32:13:error_handler	4	static
-../Drivers/LIS2DW12/src/lis2dw12_stm32f429xx_port.c:37:6:stm32f429xx_i2c_init	8	static
-../Drivers/LIS2DW12/src/lis2dw12_stm32f429xx_port.c:68:14:stm32f429xx_i2c_master_tx	32	static
-../Drivers/LIS2DW12/src/lis2dw12_stm32f429xx_port.c:82:14:stm32f429xx_i2c_master_rx	32	static
-../Drivers/LIS2DW12/src/lis2dw12_stm32f429xx_port.c:96:14:stm32f429xx_i2c_mem_write	48	static
-../Drivers/LIS2DW12/src/lis2dw12_stm32f429xx_port.c:110:14:stm32f429xx_i2c_mem_read	48	static
-../Drivers/LIS2DW12/src/lis2dw12_stm32f429xx_port.c:124:14:stm32f429xx_i2c_is_dev_ready	24	static
