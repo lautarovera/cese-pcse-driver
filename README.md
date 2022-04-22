@@ -1,6 +1,8 @@
 # CESE PCSE - Implementación de Driver Genérico
 El presente es un repositorio que contiene la implementación de un driver genérico. 
 El mismo tiene modalidad de examen, siendo necesario cumplir los siguientes requisitos para la aprobación del curso Protocolos de Comunicaciones en Sistemas Embebidos (CESE).
+## Localización del Driver
+[Driver LIS2DW12](https://github.com/lautarovera/cese-pcse-driver/tree/main/PCSE_LIS2DW12_Driver/Drivers/LIS2DW12)
 ## Requerimientos
 Los requerimientos aquí listados suponen una base mínima que debe cumplirse, y no son bajo
 ningún concepto restricciones. Si el estudiante desea sobrepasar estos requerimientos mínimos
